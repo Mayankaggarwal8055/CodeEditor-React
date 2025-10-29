@@ -8,10 +8,10 @@ const prisma = new PrismaClient();
 
 router.post('/', async (req, res) => {
     try {
-        
+
         const { email, password } = req.body;
 
-        
+
 
         const user = await prisma.userRecord.findUnique({
             where: { email },
@@ -35,10 +35,11 @@ router.post('/', async (req, res) => {
 
         res.cookie('token', token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-            maxAge: 86400000,
+            secure: true, // ✅ required for cross-site
+            sameSite: 'none', // ✅ required for cross-site cookies
+            maxAge: 86400000, // 1 day
         });
+
 
         res.status(200).json({
             message: 'Login successful',
