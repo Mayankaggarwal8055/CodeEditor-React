@@ -1,14 +1,14 @@
 const signUpData = async (userData) => {
-    
+
 
     try {
-        
+
         const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/signup`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(userData),
-            credentials: 'include'
-        })
+            credentials: "include"
+        });
 
         if (!res.ok) {
             const errorData = await res.json();
@@ -17,7 +17,7 @@ const signUpData = async (userData) => {
 
 
         const data = await res.json()
-        
+
         return data
 
 
