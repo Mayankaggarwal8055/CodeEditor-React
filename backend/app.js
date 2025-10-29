@@ -9,13 +9,14 @@ import loginRoute from './http/routes/login.js';
 import verifyRoute from './http/routes/verify.js';
 import projectDataRoute from './http/routes/projectDataRoute.js'
 
-app.use(cors({
-    origin: [
-        'http://localhost:5173',
-        'https://codesphere-mayank.netlify.app'
-    ],
-    credentials: true
-}))
+app.use(
+    cors({
+        origin: "https://codesphere-mayank.netlify.app", // your frontend domain
+        credentials: true, // allow cookies/JWT
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+    })
+);
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
