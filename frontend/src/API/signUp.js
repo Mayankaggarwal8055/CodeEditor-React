@@ -3,7 +3,7 @@ const signUpData = async (userData) => {
 
     try {
         
-        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/SignUp`, {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/signup`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData),

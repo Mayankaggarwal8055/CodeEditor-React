@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api/SignUp', SignUpRoute)
+app.use('/api/signup', SignUpRoute)
 app.use('/api/login', loginRoute)
 app.use('/api/verify', verifyRoute)
 app.use('/api/projectData', projectDataRoute)
