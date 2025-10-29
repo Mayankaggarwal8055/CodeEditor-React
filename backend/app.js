@@ -11,6 +11,7 @@ import projectDataRoute from './http/routes/projectDataRoute.js'
 
 app.use(cors({
     origin: 'http://localhost:5173',
+    'https://codesphere-mayank.netlify.app',
     credentials: true
 }))
 app.use(cookieParser());
