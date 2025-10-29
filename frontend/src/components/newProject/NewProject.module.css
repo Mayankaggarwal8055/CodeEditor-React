@@ -1,0 +1,106 @@
+/* src/components/newProject/NewProject.module.css */
+.hero {
+    display: grid;
+    place-items: center;
+    padding: 10px 0 0;
+}
+
+.card {
+    width: min(980px, 100%);
+    min-height: 140px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #151a20 0%, #0f1317 100%);
+    border: 1px solid rgba(111, 224, 198, 0.22);
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 22px;
+    cursor: pointer;
+    transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(111, 224, 198, 0.38);
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.plusBadge {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    line-height: 1;
+    color: #0b0d10;
+    background: linear-gradient(90deg, #6fe0c6, #4fd1c5);
+    box-shadow: 0 8px 18px rgba(79, 209, 197, 0.35);
+    user-select: none;
+}
+
+.content {
+    display: grid;
+    gap: 6px;
+}
+
+.heading {
+    margin: 0;
+    font-size: 20px;
+    color: #e8f3ef;
+    letter-spacing: 0.2px;
+}
+
+.sub {
+    margin: 0;
+    color: #b7c6d1;
+    font-size: 14px;
+}
+
+.cta {
+    margin-top: 8px;
+    width: fit-content;
+    padding: 10px 14px;
+    background: #0b0d10;
+    color: #daf7ef;
+    border: 1px solid rgba(111, 224, 198, 0.34);
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 150ms ease, color 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+
+.cta:hover {
+    background: #10151a;
+    border-color: rgba(111, 224, 198, 0.6);
+    transform: translateY(-1px);
+}
+
+.glow {
+    position: absolute;
+    inset: -40% -20% auto -20%;
+    height: 160%;
+    background: radial-gradient(60% 60% at 35% 20%, rgba(111, 224, 198, 0.22) 0%, rgba(111, 224, 198, 0) 60%);
+    pointer-events: none;
+    filter: blur(12px);
+}
+
+/* Stack for smaller screens */
+@media (max-width: 640px) {
+    .card {
+        grid-template-columns: auto 1fr;
+        align-items: start;
+    }
+
+    .cta {
+        margin-top: 10px;
+    }
+}

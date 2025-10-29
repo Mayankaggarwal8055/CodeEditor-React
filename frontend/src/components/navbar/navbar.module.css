@@ -1,0 +1,88 @@
+.navbar {
+  background: transparent;
+  /* backdrop-filter: blur(10px); */
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+}
+
+.navBrand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #00b894, #00cec9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+.navBrand:hover {
+  text-shadow: 0 0 20px rgba(0, 206, 201, 0.3);
+  transform: scale(1.05);
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navLink {
+  color: #dfe6e9;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #00b894;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navLink:hover {
+  color: #00b894;
+}
+
+.navLink:hover::after {
+  width: 80%;
+}
+
+/* Active state applied via JS class merge */
+.active {
+  color: #00cec9;
+  background: rgba(0, 184, 148, 0.1);
+}
+
+.active::after {
+  width: 80%;
+  background: #00cec9;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+  .navLinks {
+    gap: 1rem;
+  }
+  .navLink {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}

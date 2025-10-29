@@ -1,0 +1,53 @@
+.wrap {
+    min-height: 100dvh;
+    background: #0b0d10;
+    color: #e8edf2;
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
+.main {
+    width: 100%;
+    display: grid;
+    gap: 24px;
+    padding-bottom: 40px;
+}
+
+/* Share the same content width for hero and history */
+.heroWrap,
+.historyWrap {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+/* 4-column equal grid that wraps */
+.historyGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.historyGrid>* {
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .historyGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .historyGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 540px) {
+    .historyGrid {
+        grid-template-columns: 1fr;
+    }
+}

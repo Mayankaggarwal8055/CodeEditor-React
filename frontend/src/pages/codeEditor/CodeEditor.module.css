@@ -1,0 +1,176 @@
+/* src/components/editor/CodeEditor.module.css */
+
+:root {
+    --bg: #0b0d10;
+    --panel-top: #13181d;
+    --panel-bot: #0f1418;
+    --ink: #e8f3ef;
+    --muted: #a9bac8;
+    --brand: #6fe0c6;
+    --border: rgba(255, 255, 255, 0.06);
+    --glass: rgba(255, 255, 255, 0.04);
+}
+
+.page {
+    min-height: 100dvh;
+    background:
+        radial-gradient(60% 60% at 10% -10%, rgba(79, 209, 197, 0.08), transparent 60%),
+        radial-gradient(50% 50% at 100% 0%, rgba(111, 224, 198, 0.08), transparent 60%),
+        var(--bg);
+    color: var(--ink);
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 16px;
+}
+
+/* Top bar */
+.topRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: linear-gradient(180deg, #0c1116, #070b0e);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(6px);
+}
+
+.heading {
+    margin: 0;
+    font-size: 18px;
+    color: var(--brand);
+    letter-spacing: 0.3px;
+}
+
+.btnRow {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    height: 28px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(111, 224, 198, 0.35);
+    background: #0d1115;
+    color: #daf7ef;
+    cursor: pointer;
+    transition: transform 140ms ease, border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
+    box-shadow: inset 0 1px 0 var(--glass), 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    border-color: rgba(111, 224, 198, 0.65);
+}
+
+.btn.warn {
+    border-color: rgba(255, 92, 92, 0.55);
+    color: #ffdede;
+}
+
+.btn.warn:hover {
+    border-color: rgba(255, 92, 92, 0.8);
+    background: #161014;
+}
+
+/* Editors row: 3 equal columns, full width */
+.editors {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.cm {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    background: linear-gradient(180deg, var(--panel-top), var(--panel-bot));
+    border: 1px solid var(--border);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55), inset 0 1px 0 var(--glass);
+    overflow: hidden;
+    outline: 1px solid rgba(111, 224, 198, 0.08);
+    transition: outline-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.cm:hover {
+    outline-color: rgba(111, 224, 198, 0.22);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transform: translateY(-2px);
+}
+
+/* Output row: 2 equal columns, full width */
+.outputRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+    height: 100%;
+    padding: 0 16px 16px;
+    box-sizing: border-box;
+}
+
+.previewBox,
+.console {
+    border-radius: 14px;
+    background: linear-gradient(180deg, var(--panel-top), var(--panel-bot));
+    border: 1px solid var(--border);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55), inset 0 1px 0 var(--glass);
+    overflow: hidden;
+    position: relative;
+}
+
+.previewBox::before,
+.console::before {
+    content: "";
+    position: absolute;
+    inset: -35% -10% auto -10%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(50% 50% at 20% 20%, rgba(111, 224, 198, 0.16), rgba(111, 224, 198, 0) 60%);
+    filter: blur(12px);
+}
+
+.preview {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #ffffff;
+}
+
+/* Console area */
+.console {
+    margin: 0;
+    padding: 12px;
+    height: 420px;
+    color: var(--ink);
+    background: linear-gradient(180deg, #0c1116, #0b0f14);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.45;
+    overflow: auto;
+    border: 1px solid rgba(111, 224, 198, 0.14);
+    outline: 1px solid rgba(111, 224, 198, 0.08);
+}
+
+/* Responsive stacking */
+@media (max-width: 1024px) {
+    .editors {
+        grid-template-columns: 1fr;
+    }
+
+    .outputRow {
+        grid-template-columns: 1fr;
+    }
+
+    .preview,
+    .console {
+        height: 360px;
+    }
+}
