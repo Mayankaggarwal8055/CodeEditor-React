@@ -7,7 +7,7 @@ const Navbar = ({ userData }) => {
   return (
     <nav className={styles.navbar}>
       <NavLink to="/" className={styles.navBrand}>
-        Code Mirror
+        CodeSphere
       </NavLink>
 
       <div className={styles.navLinks}>
