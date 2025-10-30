@@ -47,6 +47,7 @@ It enables developers to write and manage code through a fast, minimal, and resp
 -Create a .env file inside /backend:
 
 -DATABASE_URL="your_postgres_connection_url"
+
 -JWT_SECRET="your_secret_key"
 
 -Run Prisma migrations:
