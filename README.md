@@ -37,7 +37,7 @@ It enables developers to write and manage code through a fast, minimal, and resp
 
 ### 1️⃣ Clone the Repository
 
--git clone https://github.com/<your-username>/CodeShere.git
+-git clone https://github.com/Mayankaggarwal8055/CodeShere.git
 -cd CodeShere
 
 2️⃣ **Backend Setup**
@@ -47,7 +47,6 @@ It enables developers to write and manage code through a fast, minimal, and resp
 -Create a .env file inside /backend:
 
 -DATABASE_URL="your_postgres_connection_url"
-
 -JWT_SECRET="your_secret_key"
 
 -Run Prisma migrations:
